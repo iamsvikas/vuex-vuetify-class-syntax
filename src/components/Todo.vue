@@ -61,23 +61,23 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import store from "../store";
 
 @Component
 export default class Todo extends Vue {
   addTask(): void {
     let newTask = {
       id: Date.now(),
-      title: this.$store.state.newTodo,
+      title: store.state.newTodo,
       done: false,
     };
-    if (this.$store.state.newTodo !== "") {
-      this.$store.dispatch("addTaskAction", newTask);
-      this.$store.state.newTodo = "";
+    if (store.state.newTodo !== "") {
+      store.dispatch("addTaskAction", newTask);
+      store.state.newTodo = "";
     }
   }
   doneTask(id: number): void {
-    // this.$store.dispatch("statusToggler", )
-    let task = this.$store.state.tasks.filter((task) => task.id === id)[0];
+    let task = this.$store.state.tasks.filter((task: any) => task.id === id)[0];
     task.done = !task.done;
   }
 
