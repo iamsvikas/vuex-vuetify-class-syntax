@@ -100,7 +100,7 @@ export default class Todo extends Vue {
       done: this.$store.state.editTodo.done,
     };
     if (this.$store.state.editTodo.title !== "") {
-      this.$store.state.tasks.map((item) => {
+      this.$store.state.tasks.map((item: any) => {
         if (item.id === updatedtodo.id) {
           item.title = updatedtodo.title;
           item.done = updatedtodo.done;
