@@ -5,6 +5,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    newTodo: "",
+    updateTodo: false,
+    editTodo: {
+      id: 0,
+      title: "",
+      done: false,
+    },
     tasks: [
       {
         id: 1,
